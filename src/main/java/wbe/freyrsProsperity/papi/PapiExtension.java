@@ -2,15 +2,9 @@ package wbe.freyrsProsperity.papi;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
-import wbe.freyrsProsperity.util.Utilities;
+import wbe.freyrsProsperity.FreyrsProsperity;
 
 public class PapiExtension extends PlaceholderExpansion {
-
-    private Utilities utilities;
-
-    public PapiExtension() {
-        this.utilities = new Utilities();
-    }
 
     @Override
     public String getAuthor() {
@@ -19,7 +13,7 @@ public class PapiExtension extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier() {
-        return "DeathOath";
+        return "FreyrsProsperity";
     }
 
     @Override
@@ -35,7 +29,7 @@ public class PapiExtension extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String params) {
         if(params.equalsIgnoreCase("time")) {
-            return "";
+            return FreyrsProsperity.utilities.getTime();
         }
 
         return null;
