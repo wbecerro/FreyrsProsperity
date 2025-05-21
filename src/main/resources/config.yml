@@ -1,0 +1,93 @@
+Messages:
+  list: "&b[&cBendiciones&b] &eLas bendiciones disponibles son: "
+  notEnoughArgs: "&b[&cBendiciones&b] &eNo has especificado suficientes argumentos."
+  noPermission: "&b[&cBendiciones&b] &eNo tienes permiso para hacer esto."
+  time: "&b[&cBendiciones&b] &eQuedan &c%time% &epara que se invoque una bendición."
+  force: "&b[&cBendiciones&b] &eSe ha forzado la invocación de una bendición."
+  spawned: "&b[&cBendiciones&b] &eFreyr ha invocado una %blessing%&e."
+  adminSpawned: "&b[&cBendiciones&b] &eFreyr ha invocado una %blessing% &een x: %x% y: %y% z: %z% en %world%."
+  location: "&b[&cBendiciones&b] &eHay una %blessing% &een x: %x% y: %y% z: %z% en %world%."
+  compassSuccess: "&b[&cBendiciones&b] &eEl &6&lArtefacto de Mimir &eapunta hacia la bendición de Freyr."
+  compassFail: "&b[&cBendiciones&b] &cEl &6&lArtefacto de Mimir &cno ha detectado ninguna bendición."
+  reload: "&b[&cBendiciones&b] &ePlugin recargado con éxito."
+  help:
+    - "&b-===- [&cBendiciones&b] -===-"
+    - "&b/freyrsprosperity &eMuestra esta página."
+    - "&b/freyrsprosperity time &eMuestra el tiempo que falta para invocar una bendición."
+    - "&b/freyrsprosperity location &eMuestra las bendiciones invocadas."
+    - "&b/freyrsprosperity force [tipo] [mundo] &eFuerza la invocación de una bendición. (Elimina la ya existente)"
+    - "&b/freyrsprosperity list &eMuestra los tipos de bendiciones."
+    - "&b/freyrsprosperity artifact [jugador] &eDa un &6&lArtefacto de Mimir &ea un jugador."
+    - "&b/freyrsprosperity reload &eRecarga la configuración del plugin."
+    - "&b"
+    - "&eLeyenda: &b<> &eObligatorio  &b[] &eOpcional"
+
+Config:
+  spawnTime: 7200
+  worlds:
+    - world
+
+Items:
+  artifact:
+    material: COMPASS
+    name: "&6&lArtefacto de Mimir"
+    description:
+      - "&7"
+      - "&7Este artefacto usa el poder canalizado"
+      - "&7de los ojos de Mimir para visualizar"
+      - "&7las bendiciones del mundo."
+    glow: true
+
+Blessings:
+  menor:
+    name: "&aBendición menor"
+    block: BARREL
+    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    particles: END_ROD
+    weight: 10
+    rewards:
+      test:
+        type: DIRT
+        chance: 100
+        min: 5
+        max: 10
+        particle: CLOUD
+  media:
+    name: "&eBendición media"
+    block: BARREL
+    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    particles: END_ROD
+    weight: 5
+    rewards:
+      test:
+        type: DIRT
+        chance: 100
+        min: 5
+        max: 10
+        particle: CLOUD
+  mayor:
+    name: "&cBendición mayor"
+    block: BARREL
+    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    particles: END_ROD
+    weight: 2
+    rewards:
+      test:
+        type: DIRT
+        chance: 100
+        min: 5
+        max: 10
+        particle: CLOUD
+  suprema:
+    name: "&4Bendición suprema"
+    block: BARREL
+    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    particles: END_ROD
+    weight: 1
+    rewards:
+      test:
+        type: DIRT
+        chance: 100
+        min: 5
+        max: 10
+        particle: CLOUD
