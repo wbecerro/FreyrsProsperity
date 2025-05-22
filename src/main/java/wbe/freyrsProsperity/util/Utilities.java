@@ -2,6 +2,7 @@ package wbe.freyrsProsperity.util;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.scheduler.BukkitRunnable;
 import wbe.freyrsProsperity.FreyrsProsperity;
 import wbe.freyrsProsperity.config.blessings.Blessing;
 
@@ -38,6 +39,19 @@ public class Utilities {
 
         Block block = world.getBlockAt(location);
         block.setType(blessing.getBlock());
+        Particle particle = blessing.getParticle();
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if(!FreyrsProsperity.activeBlessings.containsKey(location)) {
+                    this.cancel();
+                } else {
+                    location.getWorld().spawnParticle(particle, location, 10, 1, 1, 1, 0.1);
+                }
+            }
+        }.runTaskTimer(plugin, 0L, 15L);
+
         FreyrsProsperity.activeBlessings.put(location, blessing);
         Bukkit.broadcastMessage(FreyrsProsperity.messages.spawned.replace("%blessing%", blessing.getName()));
         Bukkit.broadcast(FreyrsProsperity.messages.adminSpawned.replace("%blessing%", blessing.getName())
