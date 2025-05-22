@@ -4,6 +4,7 @@ main: wbe.freyrsProsperity.FreyrsProsperity
 api-version: 1.21
 author: wbe
 softdepend: [mythicmobs, PlaceholderAPI]
+depend: [DecentHolograms]
 commands:
   FreyrsProsperity:
     description: FreyrsProsperity main command

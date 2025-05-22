@@ -1,5 +1,6 @@
 package wbe.freyrsProsperity.util;
 
+import eu.decentsoftware.holograms.api.DHAPI;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -7,10 +8,7 @@ import wbe.freyrsProsperity.FreyrsProsperity;
 import wbe.freyrsProsperity.config.blessings.Blessing;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Utilities {
 
@@ -39,6 +37,8 @@ public class Utilities {
 
         Block block = world.getBlockAt(location);
         block.setType(blessing.getBlock());
+        String hologram = location.getWorld().getName() + location.getBlockX() + location.getBlockY() + location.getBlockZ();
+        DHAPI.createHologram(hologram, location.clone().add(0.5, 2, 0.5), new ArrayList<>(Arrays.asList(blessing.getName())));
         Particle particle = blessing.getParticle();
 
         new BukkitRunnable() {
@@ -46,6 +46,7 @@ public class Utilities {
             public void run() {
                 if(!FreyrsProsperity.activeBlessings.containsKey(location)) {
                     this.cancel();
+                    DHAPI.removeHologram(hologram);
                 } else {
                     location.getWorld().spawnParticle(particle, location, 20, 1, 1, 1, 0.1);
                 }

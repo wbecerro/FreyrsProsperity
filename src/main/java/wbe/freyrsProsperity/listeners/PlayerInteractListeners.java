@@ -53,7 +53,7 @@ public class PlayerInteractListeners implements Listener {
                     Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
                         @Override
                         public void run() {
-                            Item droppedItem = location.getWorld().dropItem(location.clone().add(0, 1, 0), reward.getItem());
+                            Item droppedItem = location.getWorld().dropItem(location.clone().add(0.5, 1, 0.5), reward.getItem());
 
                             // Lanzar el objeto desde la bendición
                             double vectorX = random.nextDouble() * (0.2 - (-0.2)) - 0.2;
