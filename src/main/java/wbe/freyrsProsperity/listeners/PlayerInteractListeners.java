@@ -37,7 +37,6 @@ public class PlayerInteractListeners implements Listener {
             }
         }
 
-        Player player = event.getPlayer();
         Location location = event.getClickedBlock().getLocation();
         Random random = new Random();
 
@@ -55,8 +54,6 @@ public class PlayerInteractListeners implements Listener {
                 return;
             }
         }
-
-        event.setCancelled(true);
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
