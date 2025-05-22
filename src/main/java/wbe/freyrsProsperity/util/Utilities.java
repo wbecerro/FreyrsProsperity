@@ -47,7 +47,7 @@ public class Utilities {
                 if(!FreyrsProsperity.activeBlessings.containsKey(location)) {
                     this.cancel();
                 } else {
-                    location.getWorld().spawnParticle(particle, location, 10, 1, 1, 1, 0.1);
+                    location.getWorld().spawnParticle(particle, location, 20, 1, 1, 1, 0.1);
                 }
             }
         }.runTaskTimer(plugin, 0L, 15L);

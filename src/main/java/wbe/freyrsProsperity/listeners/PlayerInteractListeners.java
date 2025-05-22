@@ -70,10 +70,10 @@ public class PlayerInteractListeners implements Listener {
                                         this.cancel();
                                     } else {
                                         location.getWorld().spawnParticle(reward.getParticle(), droppedItem.getLocation(),
-                                                3, 0.2, 0.2, 0.2, 0.1);
+                                                1);
                                     }
                                 }
-                            }.runTaskTimer(plugin, 0L, 5L);
+                            }.runTaskTimer(plugin, 0L, 2L);
                         }
                     }, delay);
                     delay += 10;
