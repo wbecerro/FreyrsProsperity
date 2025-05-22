@@ -69,8 +69,7 @@ public class PlayerInteractListeners implements Listener {
                                     if(!droppedItem.isValid() || droppedItem.isDead() ||droppedItem.isOnGround()) {
                                         this.cancel();
                                     } else {
-                                        location.getWorld().spawnParticle(reward.getParticle(), droppedItem.getLocation(),
-                                                1);
+                                        location.getWorld().spawnParticle(reward.getParticle(), droppedItem.getLocation(), 1);
                                     }
                                 }
                             }.runTaskTimer(plugin, 0L, 2L);

@@ -5,6 +5,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class Reward {
 
+    private String type;
+
     private ItemStack item;
 
     private int chance;
@@ -15,12 +17,21 @@ public class Reward {
 
     private Particle particle;
 
-    public Reward(ItemStack item, int chance, int min, int max, Particle particle) {
+    public Reward(String type, ItemStack item, int chance, int min, int max, Particle particle) {
+        this.type = type;
         this.item = item;
         this.chance = chance;
         this.min = min;
         this.max = max;
         this.particle = particle;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public ItemStack getItem() {

@@ -1,12 +1,16 @@
 package wbe.freyrsProsperity.config;
 
+import io.lumine.mythic.bukkit.MythicBukkit;
+import io.lumine.mythic.core.items.MythicItem;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import wbe.freyrsProsperity.config.blessings.Blessing;
 import wbe.freyrsProsperity.config.blessings.Reward;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -62,13 +66,24 @@ public class Config {
         ArrayList<Reward> rewards = new ArrayList<>();
         Set<String> configRewards = config.getConfigurationSection(blessing).getKeys(false);
         for(String reward : configRewards) {
-            Material type = Material.valueOf(config.getString(blessing + "." + reward + ".type"));
+            String type = config.getString(blessing + "." + reward + ".type");
+            String item = config.getString(blessing + "." + reward + ".item");
             int chance = config.getInt(blessing + "." + reward + ".chance");
             int min = config.getInt(blessing + "." + reward + ".min");
             int max = config.getInt(blessing + "." + reward + ".max");
             Particle particle = Particle.valueOf(config.getString(blessing + "." + reward + ".particle"));
 
-            Reward configReward = new Reward(new ItemStack(type), chance, min, max, particle);
+            ItemStack itemStack = new ItemStack(Material.DIRT);
+            switch(type) {
+                case "item":
+                    itemStack = new ItemStack(Material.valueOf(item));
+                    break;
+                case "mmitem":
+                    itemStack = MythicBukkit.inst().getItemManager().getItemStack(item);
+                    break;
+            }
+
+            Reward configReward = new Reward(type, itemStack, chance, min, max, particle);
             rewards.add(configReward);
         }
 

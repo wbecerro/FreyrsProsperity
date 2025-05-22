@@ -41,53 +41,57 @@ Items:
 Blessings:
   menor:
     name: "&aBendición menor"
-    block: BARREL
-    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    block: LODESTONE
+    openSound: ENTITY_ILLUSIONER_MIRROR_MOVE
     particles: END_ROD
     weight: 10
     rewards:
       test:
-        type: DIRT
+        type: item
+        item: DIRT
         chance: 100
         min: 5
         max: 10
-        particle: CLOUD
+        particle: CHERRY_LEAVES
   media:
     name: "&eBendición media"
-    block: BARREL
-    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    block: LODESTONE
+    openSound: ENTITY_ILLUSIONER_MIRROR_MOVE
     particles: END_ROD
     weight: 5
     rewards:
       test:
-        type: DIRT
+        type: item
+        item: DIRT
         chance: 100
         min: 5
         max: 10
-        particle: CLOUD
+        particle: CHERRY_LEAVES
   mayor:
     name: "&cBendición mayor"
-    block: BARREL
-    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    block: LODESTONE
+    openSound: ENTITY_ILLUSIONER_MIRROR_MOVE
     particles: END_ROD
     weight: 2
     rewards:
       test:
-        type: DIRT
+        type: item
+        item: DIRT
         chance: 100
         min: 5
         max: 10
-        particle: CLOUD
+        particle: CHERRY_LEAVES
   suprema:
     name: "&4Bendición suprema"
-    block: BARREL
-    openSound: BLOCK_TRIAL_SPAWNER_ABOUT_TO_SPAWN_ITEM
+    block: LODESTONE
+    openSound: ENTITY_ILLUSIONER_MIRROR_MOVE
     particles: END_ROD
     weight: 1
     rewards:
       test:
-        type: DIRT
+        type: item
+        item: DIRT
         chance: 100
         min: 5
         max: 10
-        particle: CLOUD
+        particle: CHERRY_LEAVES
