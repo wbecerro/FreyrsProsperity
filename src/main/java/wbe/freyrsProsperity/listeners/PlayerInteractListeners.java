@@ -25,12 +25,18 @@ public class PlayerInteractListeners implements Listener {
 
     private FreyrsProsperity plugin;
 
+    private static boolean opening = false;
+
     public PlayerInteractListeners() {
         this.plugin = FreyrsProsperity.getInstance();
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void openBlessingOnInteract(PlayerInteractEvent event) {
+        if(opening) {
+            return;
+        }
+
         if(!event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if(!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
                 return;
@@ -43,6 +49,7 @@ public class PlayerInteractListeners implements Listener {
         for(Map.Entry<Location, Blessing> entry : FreyrsProsperity.activeBlessings.entrySet()) {
             if(FreyrsProsperity.utilities.isLocationEquals(entry.getKey(), location)) {
                 // Es una bendición
+                opening = true;
                 ArrayList<Reward> rewards = entry.getValue().getRandomRewards();
                 long delay = 0;
                 for(Reward reward : rewards) {
@@ -84,6 +91,7 @@ public class PlayerInteractListeners implements Listener {
                     public void run() {
                         FreyrsProsperity.utilities.removeBlessing(entry.getKey());
                         location.getWorld().playSound(location, entry.getValue().getSound(), 1F, 1F);
+                        opening = false;
                     }
                 }, delay + 10);
                 event.setCancelled(true);
