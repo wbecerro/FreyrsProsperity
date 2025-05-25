@@ -10,7 +10,6 @@ import wbe.freyrsProsperity.config.blessings.Blessing;
 import wbe.freyrsProsperity.config.blessings.Reward;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +18,7 @@ public class Config {
     private FileConfiguration config;
 
     public int spawnTime;
+    public int itemProtection;
     public List<World> worlds = new ArrayList<>();
 
     public Material artifactMaterial;
@@ -32,6 +32,7 @@ public class Config {
         this.config = config;
 
         spawnTime = config.getInt("Config.spawnTime");
+        itemProtection = config.getInt("Config.itemProtection");
         config.getStringList("Config.worlds").stream().forEach((world) -> {
             worlds.add(Bukkit.getWorld(world));
         });

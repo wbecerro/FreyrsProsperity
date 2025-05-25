@@ -24,6 +24,7 @@ Messages:
 
 Config:
   spawnTime: 7200
+  itemProtection: 30
   worlds:
     - world
 

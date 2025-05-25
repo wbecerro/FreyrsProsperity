@@ -10,6 +10,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import wbe.freyrsProsperity.FreyrsProsperity;
@@ -61,6 +62,14 @@ public class PlayerInteractListeners implements Listener {
                         @Override
                         public void run() {
                             Item droppedItem = location.getWorld().dropItem(location.clone().add(0.5, 1, 0.5), reward.getItem());
+                            NamespacedKey key = new NamespacedKey(plugin, "blessingItem");
+                            droppedItem.getPersistentDataContainer().set(key, PersistentDataType.STRING, event.getPlayer().getName());
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    droppedItem.getPersistentDataContainer().remove(key);
+                                }
+                            }.runTaskLaterAsynchronously(plugin, FreyrsProsperity.config.itemProtection * 20L);
 
                             // Lanzar el objeto desde la bendición
                             double vectorX = random.nextDouble() * (0.2 - (-0.2)) - 0.2;
