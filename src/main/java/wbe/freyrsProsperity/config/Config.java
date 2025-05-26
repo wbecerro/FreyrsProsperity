@@ -65,6 +65,7 @@ public class Config {
 
     private ArrayList<Reward> loadRewards(String blessing) {
         ArrayList<Reward> rewards = new ArrayList<>();
+        Boolean mythicmobs = Bukkit.getPluginManager().getPlugin("MythicMobs") != null;
         Set<String> configRewards = config.getConfigurationSection(blessing).getKeys(false);
         for(String reward : configRewards) {
             String type = config.getString(blessing + "." + reward + ".type");
@@ -80,6 +81,9 @@ public class Config {
                     itemStack = new ItemStack(Material.valueOf(item));
                     break;
                 case "mmitem":
+                    if(!mythicmobs) {
+                        continue;
+                    }
                     itemStack = MythicBukkit.inst().getItemManager().getItemStack(item);
                     break;
             }
