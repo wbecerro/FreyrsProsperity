@@ -11,16 +11,17 @@ Messages:
   compassFail: "&b[&cBendiciones&b] &cEl &6&lArtefacto de Mimir &cno ha detectado ninguna bendición."
   reload: "&b[&cBendiciones&b] &ePlugin recargado con éxito."
   help:
-    - "&b-===- [&cBendiciones&b] -===-"
+    - "&d&m -===- &b[&cBendiciones&b] &d&m-===-"
     - "&b/freyrsprosperity &eMuestra esta página."
     - "&b/freyrsprosperity time &eMuestra el tiempo que falta para invocar una bendición."
     - "&b/freyrsprosperity location &eMuestra las bendiciones invocadas."
-    - "&b/freyrsprosperity force [tipo] [mundo] &eFuerza la invocación de una bendición. (Elimina la ya existente)"
+    - "&b/freyrsprosperity force [Tipo] [Mundo] &eFuerza la invocación de una bendición."
     - "&b/freyrsprosperity list &eMuestra los tipos de bendiciones."
-    - "&b/freyrsprosperity artifact [jugador] &eDa un &6&lArtefacto de Mimir &ea un jugador."
+    - "&b/freyrsprosperity artifact [Jugador] &eDa un &6&lArtefacto de Mimir &ea un jugador."
     - "&b/freyrsprosperity reload &eRecarga la configuración del plugin."
     - "&b"
     - "&eLeyenda: &b<> &eObligatorio  &b[] &eOpcional"
+    - "&d&m -===- &b[&cBendiciones&b] &d&m-===-"
 
 Config:
   spawnTime: 7200

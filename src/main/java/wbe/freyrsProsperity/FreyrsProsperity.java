@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import wbe.freyrsProsperity.commands.CommandListener;
+import wbe.freyrsProsperity.commands.TabListener;
 import wbe.freyrsProsperity.config.Config;
 import wbe.freyrsProsperity.config.Messages;
 import wbe.freyrsProsperity.config.blessings.Blessing;
@@ -22,6 +23,8 @@ public final class FreyrsProsperity extends JavaPlugin {
     private FileConfiguration configuration;
 
     private CommandListener commandListener;
+
+    private TabListener tabListener;
 
     private EventListeners eventListeners;
 
@@ -54,6 +57,8 @@ public final class FreyrsProsperity extends JavaPlugin {
 
         recipeLoader.loadRecipes();
         getCommand("freyrsprosperity").setExecutor(this.commandListener);
+        tabListener = new TabListener();
+        getCommand("freyrsprosperity").setTabCompleter(tabListener);
         eventListeners.initializeListeners();
         Scheduler.startSchedulers();
     }
