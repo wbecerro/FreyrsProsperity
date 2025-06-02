@@ -56,7 +56,7 @@ public class PlayerInteractListeners implements Listener {
                 long delay = 0;
                 for(Reward reward : rewards) {
                     ItemStack item = reward.getItem();
-                    item.setAmount(random.nextInt(reward.getMax() - reward.getMin()) + reward.getMin());
+                    item.setAmount(random.nextInt(reward.getMin(), reward.getMax() + 1));
 
                     // Spawnear cada item por separado con un poco de delay (10 ticks / 0,5s por defecto)
                     Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {

@@ -31,42 +31,42 @@ public class CommandListener implements CommandExecutor {
             }
 
             if(args.length == 0 || args[0].equalsIgnoreCase("help")) {
-                if(!player.hasPermission("freyrsprosperity.command.help")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.help")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 
                 for(String line : FreyrsProsperity.messages.help) {
-                    player.sendMessage(line.replace("&", "§"));
+                    sender.sendMessage(line.replace("&", "§"));
                 }
             } else if(args[0].equalsIgnoreCase("list")) {
-                if(!player.hasPermission("freyrsprosperity.command.list")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.list")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 
-                player.sendMessage(FreyrsProsperity.messages.listMessage + FreyrsProsperity.utilities.getBlessingTypes());
+                sender.sendMessage(FreyrsProsperity.messages.listMessage + FreyrsProsperity.utilities.getBlessingTypes());
             } else if(args[0].equalsIgnoreCase("time")) {
-                if(!player.hasPermission("freyrsprosperity.command.time")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.time")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 
-                player.sendMessage(FreyrsProsperity.messages.time.replace("%time%", FreyrsProsperity.utilities.getTime()));
+                sender.sendMessage(FreyrsProsperity.messages.time.replace("%time%", FreyrsProsperity.utilities.getTime()));
             } else if(args[0].equalsIgnoreCase("location")) {
-                if(!player.hasPermission("freyrsprosperity.command.location")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.location")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 
-                player.sendMessage(FreyrsProsperity.utilities.getActiveBlessings());
+                sender.sendMessage(FreyrsProsperity.utilities.getActiveBlessings());
             } else if(args[0].equalsIgnoreCase("force")) {
-                if(!player.hasPermission("freyrsprosperity.command.force")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.force")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 
-                World world = player.getWorld();
+                World world = Bukkit.getWorld("world");
                 if(args.length > 2) {
                     world = Bukkit.getWorld(args[2]);
                 }
@@ -76,11 +76,11 @@ public class CommandListener implements CommandExecutor {
                     type = FreyrsProsperity.utilities.searchBlessingType(args[1]);
                 }
 
-                player.sendMessage(FreyrsProsperity.messages.force);
+                sender.sendMessage(FreyrsProsperity.messages.force);
                 FreyrsProsperity.utilities.spawnBlessing(world, type);
             } else if(args[0].equalsIgnoreCase("artifact")) {
-                if(!player.hasPermission("freyrsprosperity.command.artifact")) {
-                    player.sendMessage(FreyrsProsperity.messages.noPermission);
+                if(!sender.hasPermission("freyrsprosperity.command.artifact")) {
+                    sender.sendMessage(FreyrsProsperity.messages.noPermission);
                     return false;
                 }
 

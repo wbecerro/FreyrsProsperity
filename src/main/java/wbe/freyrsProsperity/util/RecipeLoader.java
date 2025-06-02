@@ -32,10 +32,10 @@ public class RecipeLoader {
     private void loadTomeRecipe() {
         NamespacedKey key = new NamespacedKey(plugin, "MimirsArtifact");
         ShapedRecipe recipe = new ShapedRecipe(key, new MimirsArtifact());
-        recipe.shape(new String[] { " W ", "ELE", " W "});
+        recipe.shape(new String[] { " W ", "ERE", " W "});
         recipe.setIngredient('W', Material.WATER_BUCKET);
         recipe.setIngredient('E', Material.ENDER_EYE);
-        recipe.setIngredient('L', Material.LODESTONE);
+        recipe.setIngredient('R', Material.RECOVERY_COMPASS);
         plugin.getServer().addRecipe(recipe);
         keys.add(key);
     }
