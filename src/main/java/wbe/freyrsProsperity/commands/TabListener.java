@@ -37,13 +37,21 @@ public class TabListener implements TabCompleter {
                 case "force":
                     List<String> blessings = new ArrayList<>();
                     FreyrsProsperity.config.blessings.forEach((blessing -> {
-                        blessings.add(blessing.getId());
+                        if(args[1].isEmpty()) {
+                            blessings.add(blessing.getId());
+                        } else if(blessing.getId().startsWith(args[1])) {
+                            blessings.add(blessing.getId());
+                        }
                     }));
                     completions.addAll(blessings);
                     break;
                 case "artifact":
                     for(Player player : Bukkit.getOnlinePlayers()) {
-                        completions.add(player.getName());
+                        if(args[1].isEmpty()) {
+                            completions.add(player.getName());
+                        } else if(player.getName().startsWith(args[1])) {
+                            completions.add(player.getName());
+                        }
                     }
                     break;
             }
@@ -55,7 +63,11 @@ public class TabListener implements TabCompleter {
                 case "force":
                     List<String> worlds = new ArrayList<>();
                     Bukkit.getWorlds().forEach((world -> {
-                        worlds.add(world.getName());
+                        if(args[2].isEmpty()) {
+                            worlds.add(world.getName());
+                        } else if(world.getName().startsWith(args[2])) {
+                            worlds.add(world.getName());
+                        }
                     }));
                     completions.addAll(worlds);
                     break;

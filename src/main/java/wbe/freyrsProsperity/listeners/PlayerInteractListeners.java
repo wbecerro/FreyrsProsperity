@@ -41,7 +41,6 @@ public class PlayerInteractListeners implements Listener {
         }
 
         if(opening) {
-            event.setCancelled(true);
             return;
         }
 
@@ -54,6 +53,9 @@ public class PlayerInteractListeners implements Listener {
                 opening = true;
                 ArrayList<Reward> rewards = entry.getValue().getRandomRewards();
                 long delay = 0;
+                Bukkit.broadcastMessage(FreyrsProsperity.messages.openBlessing
+                        .replace("%player%", event.getPlayer().getName())
+                        .replace("%blessing%", entry.getValue().getName()));
                 for(Reward reward : rewards) {
                     ItemStack item = reward.getItem();
                     item.setAmount(random.nextInt(reward.getMin(), reward.getMax() + 1));

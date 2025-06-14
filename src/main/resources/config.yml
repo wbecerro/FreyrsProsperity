@@ -10,6 +10,7 @@ Messages:
   compassSuccess: "&b[&cBendiciones&b] &eEl &6&lArtefacto de Mimir &eapunta hacia la bendición de Freyr."
   compassFail: "&b[&cBendiciones&b] &cEl &6&lArtefacto de Mimir &cno ha detectado ninguna bendición."
   reload: "&b[&cBendiciones&b] &ePlugin recargado con éxito."
+  openBlessing: "&b[&cBendiciones&b] &d%player% &eha abierto una %blessing%&e."
   help:
     - "&d&m -===- &b[&cBendiciones&b] &d&m-===-"
     - "&b/freyrsprosperity &eMuestra esta página."
