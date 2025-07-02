@@ -40,7 +40,7 @@ public final class FreyrsProsperity extends JavaPlugin {
 
     public static HashMap<Location, Blessing> activeBlessings = new HashMap<>();
 
-    public static long nextBoss;
+    public static long nextBlessing;
 
     @Override
     public void onEnable() {

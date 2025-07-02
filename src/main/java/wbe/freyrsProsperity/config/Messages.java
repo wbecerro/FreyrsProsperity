@@ -18,6 +18,7 @@ public class Messages {
     public String compassFail;
     public String reload;
     public String openBlessing;
+    public String noBlessingPlaceholder;
     public List<String> help;
 
     public Messages(FileConfiguration config) {
@@ -34,5 +35,6 @@ public class Messages {
         help = config.getStringList("Messages.help");
         reload = config.getString("Messages.reload").replace("&", "§");
         openBlessing = config.getString("Messages.openBlessing").replace("&", "§");
+        noBlessingPlaceholder = config.getString("Messages.noBlessingPlaceholder").replace("&", "§");
     }
 }

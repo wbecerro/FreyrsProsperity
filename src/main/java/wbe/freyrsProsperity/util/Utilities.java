@@ -134,7 +134,7 @@ public class Utilities {
 
     public String getTime() {
         long present = Instant.now().getEpochSecond();
-        long time = FreyrsProsperity.nextBoss - present;
+        long time = FreyrsProsperity.nextBlessing - present;
         int hours = (int) (time / 3600);
         int minutes = (int) ((time - 3600 * hours) / 60);
         int seconds = (int) (time - hours * 3600 - minutes * 60);
