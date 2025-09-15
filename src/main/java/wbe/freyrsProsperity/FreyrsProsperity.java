@@ -11,7 +11,6 @@ import wbe.freyrsProsperity.config.Messages;
 import wbe.freyrsProsperity.config.blessings.Blessing;
 import wbe.freyrsProsperity.listeners.EventListeners;
 import wbe.freyrsProsperity.papi.PapiExtension;
-import wbe.freyrsProsperity.util.RecipeLoader;
 import wbe.freyrsProsperity.util.Scheduler;
 import wbe.freyrsProsperity.util.Utilities;
 
@@ -29,8 +28,6 @@ public final class FreyrsProsperity extends JavaPlugin {
     private EventListeners eventListeners;
 
     private PapiExtension papiExtension;
-
-    public static RecipeLoader recipeLoader;
 
     public static Config config;
 
@@ -55,7 +52,6 @@ public final class FreyrsProsperity extends JavaPlugin {
         commandListener = new CommandListener();
         eventListeners = new EventListeners();
 
-        recipeLoader.loadRecipes();
         getCommand("freyrsprosperity").setExecutor(this.commandListener);
         tabListener = new TabListener();
         getCommand("freyrsprosperity").setTabCompleter(tabListener);
@@ -66,7 +62,6 @@ public final class FreyrsProsperity extends JavaPlugin {
     @Override
     public void onDisable() {
         getServer().getScheduler().cancelTasks(this);
-        recipeLoader.unloadRecipes();
         reloadConfig();
         utilities.removeAllBlessings();
         getLogger().info("Freyr's Prosperity disabled correctly.");
@@ -83,7 +78,6 @@ public final class FreyrsProsperity extends JavaPlugin {
 
         reloadConfig();
         configuration = getConfig();
-        recipeLoader = new RecipeLoader();
         messages = new Messages(configuration);
         config = new Config(configuration);
         utilities = new Utilities();

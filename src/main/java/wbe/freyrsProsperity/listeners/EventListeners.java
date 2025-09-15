@@ -10,7 +10,6 @@ public class EventListeners {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 
         pluginManager.registerEvents(new PlayerInteractListeners(), plugin);
-        pluginManager.registerEvents(new PlayerJoinListeners(), plugin);
         pluginManager.registerEvents(new BlockPistonExtendListeners(), plugin);
         pluginManager.registerEvents(new ExplodeListeners(), plugin);
         pluginManager.registerEvents(new PickupItemListeners(), plugin);
