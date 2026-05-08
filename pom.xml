@@ -71,11 +71,6 @@
             <id>codemc</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
-        <repository>
-            <id>nexus</id>
-            <name>Lumine Releases</name>
-            <url>https://mvn.lumine.io/repository/maven-public/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -98,11 +93,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.lumine</groupId>
-            <artifactId>Mythic-Dist</artifactId>
-            <version>5.8.2</version>
+            <groupId>wbe</groupId>
+            <artifactId>HephaestusForge</artifactId>
+            <version>1.0</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 </project>

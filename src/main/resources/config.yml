@@ -51,7 +51,6 @@ Blessings:
     weight: 10
     rewards:
       test:
-        type: item
         item: DIRT
         chance: 100
         min: 5
@@ -65,7 +64,6 @@ Blessings:
     weight: 5
     rewards:
       test:
-        type: item
         item: DIRT
         chance: 100
         min: 5
@@ -79,7 +77,6 @@ Blessings:
     weight: 2
     rewards:
       test:
-        type: item
         item: DIRT
         chance: 100
         min: 5
@@ -93,7 +90,6 @@ Blessings:
     weight: 1
     rewards:
       test:
-        type: item
         item: DIRT
         chance: 100
         min: 5

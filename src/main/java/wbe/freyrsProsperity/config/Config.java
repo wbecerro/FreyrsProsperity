@@ -1,13 +1,11 @@
 package wbe.freyrsProsperity.config;
 
-import io.lumine.mythic.bukkit.MythicBukkit;
-import io.lumine.mythic.core.items.MythicItem;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import wbe.freyrsProsperity.config.blessings.Blessing;
 import wbe.freyrsProsperity.config.blessings.Reward;
+import wbe.hephaestusForge.HephaestusForge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +63,6 @@ public class Config {
 
     private ArrayList<Reward> loadRewards(String blessing) {
         ArrayList<Reward> rewards = new ArrayList<>();
-        Boolean mythicmobs = Bukkit.getPluginManager().getPlugin("MythicMobs") != null;
         Set<String> configRewards = config.getConfigurationSection(blessing).getKeys(false);
         for(String reward : configRewards) {
             String type = config.getString(blessing + "." + reward + ".type");
@@ -75,17 +72,15 @@ public class Config {
             int max = config.getInt(blessing + "." + reward + ".max");
             Particle particle = Particle.valueOf(config.getString(blessing + "." + reward + ".particle"));
 
-            ItemStack itemStack = new ItemStack(Material.DIRT);
-            switch(type) {
-                case "item":
-                    itemStack = new ItemStack(Material.valueOf(item));
-                    break;
-                case "mmitem":
-                    if(!mythicmobs) {
-                        continue;
-                    }
-                    itemStack = MythicBukkit.inst().getItemManager().getItemStack(item);
-                    break;
+            ItemStack itemStack;
+            try {
+                itemStack = new ItemStack(Material.valueOf(item));
+            } catch(IllegalArgumentException ex) {
+                itemStack = HephaestusForge.config.savedItems.get(item);
+            }
+
+            if(item == null) {
+                continue;
             }
 
             Reward configReward = new Reward(type, itemStack, chance, min, max, particle);
