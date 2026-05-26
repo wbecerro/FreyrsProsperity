@@ -18,7 +18,7 @@ public class Utilities {
         this.plugin = FreyrsProsperity.getInstance();
     }
 
-    private Location getRandomLocation(World world) {
+    public Location getRandomLocation(World world) {
         WorldBorder worldBorder = world.getWorldBorder();
         int radius = (int) worldBorder.getSize() / 2;
         Random random = new Random();
@@ -29,8 +29,7 @@ public class Utilities {
         return new Location(world, x, y, z);
     }
 
-    public void spawnBlessing(World world, Blessing blessing) {
-        Location location = getRandomLocation(world);
+    public void spawnBlessing(World world, Blessing blessing, Location location) {
         if(blessing == null) {
             blessing = getRandomBlessing();
         }

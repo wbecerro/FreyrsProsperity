@@ -74,6 +74,33 @@ public class TabListener implements TabCompleter {
             }
         }
 
+        // Argumento 3
+        if(args.length == 4) {
+            switch(args[0].toLowerCase()) {
+                case "force":
+                    completions.add("<x>");
+                    break;
+            }
+        }
+
+        // Argumento 4
+        if(args.length == 5) {
+            switch(args[0].toLowerCase()) {
+                case "force":
+                    completions.add("<y>");
+                    break;
+            }
+        }
+
+        // Argumento 5
+        if(args.length == 6) {
+            switch(args[0].toLowerCase()) {
+                case "force":
+                    completions.add("<z>");
+                    break;
+            }
+        }
+
         return completions;
     }
 }

@@ -21,7 +21,7 @@ public class Scheduler {
             public void run() {
                 for(World world : FreyrsProsperity.config.worlds) {
                     if(FreyrsProsperity.activeBlessings.isEmpty()) {
-                        FreyrsProsperity.utilities.spawnBlessing(world, null);
+                        FreyrsProsperity.utilities.spawnBlessing(world, null, FreyrsProsperity.utilities.getRandomLocation(world));
                     }
                     FreyrsProsperity.nextBlessing = Instant.now().getEpochSecond() + FreyrsProsperity.config.spawnTime;
                 }

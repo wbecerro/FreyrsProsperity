@@ -17,7 +17,7 @@ Messages:
     - "&b/freyrsprosperity &eMuestra esta página."
     - "&b/freyrsprosperity time &eMuestra el tiempo que falta para invocar una bendición."
     - "&b/freyrsprosperity location &eMuestra las bendiciones invocadas."
-    - "&b/freyrsprosperity force [Tipo] [Mundo] &eFuerza la invocación de una bendición."
+    - "&b/freyrsprosperity force [Tipo] [Mundo] <x> <y> <z> &eFuerza la invocación de una bendición."
     - "&b/freyrsprosperity list &eMuestra los tipos de bendiciones."
     - "&b/freyrsprosperity artifact [Jugador] &eDa un &6&lArtefacto de Mimir &ea un jugador."
     - "&b/freyrsprosperity reload &eRecarga la configuración del plugin."

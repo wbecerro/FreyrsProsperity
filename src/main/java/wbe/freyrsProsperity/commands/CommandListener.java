@@ -1,6 +1,7 @@
 package wbe.freyrsProsperity.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -72,8 +73,15 @@ public class CommandListener implements CommandExecutor {
                     type = FreyrsProsperity.utilities.searchBlessingType(args[1]);
                 }
 
+                Location location;
+                if(args.length > 5) {
+                    location = new Location(world, Double.parseDouble(args[3]), Double.parseDouble(args[4]), Double.parseDouble(args[5]));
+                } else {
+                    location = FreyrsProsperity.utilities.getRandomLocation(world);
+                }
+
                 sender.sendMessage(FreyrsProsperity.messages.force);
-                FreyrsProsperity.utilities.spawnBlessing(world, type);
+                FreyrsProsperity.utilities.spawnBlessing(world, type, location);
             } else if(args[0].equalsIgnoreCase("artifact")) {
                 if(!sender.hasPermission("freyrsprosperity.command.artifact")) {
                     sender.sendMessage(FreyrsProsperity.messages.noPermission);
