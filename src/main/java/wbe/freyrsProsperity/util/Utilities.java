@@ -151,6 +151,10 @@ public class Utilities {
             timeLine += seconds + "s";
         }
 
+        if(timeLine.isEmpty()) {
+            return FreyrsProsperity.messages.synchronizing;
+        }
+
         return timeLine;
     }
 

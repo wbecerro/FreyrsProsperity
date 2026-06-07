@@ -19,6 +19,7 @@ public class Messages {
     public String reload;
     public String openBlessing;
     public String noBlessingPlaceholder;
+    public String synchronizing;
     public List<String> help;
 
     public Messages(FileConfiguration config) {
@@ -36,5 +37,6 @@ public class Messages {
         reload = config.getString("Messages.reload").replace("&", "§");
         openBlessing = config.getString("Messages.openBlessing").replace("&", "§");
         noBlessingPlaceholder = config.getString("Messages.noBlessingPlaceholder").replace("&", "§");
+        synchronizing = config.getString("Messages.synchronizing").replace("&", "§");
     }
 }

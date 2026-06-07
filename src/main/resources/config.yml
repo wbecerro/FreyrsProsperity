@@ -12,6 +12,7 @@ Messages:
   reload: "&b[&cBendiciones&b] &ePlugin recargado con éxito."
   openBlessing: "&b[&cBendiciones&b] &d%player% &eha abierto una %blessing%&e."
   noBlessingPlaceholder: "&eNinguna"
+  synchronizing: "&eSincronizando con el servidor"
   help:
     - "&d&m -===- &b[&cBendiciones&b] &d&m-===-"
     - "&b/freyrsprosperity &eMuestra esta página."
